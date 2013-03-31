@@ -15,9 +15,11 @@ from db_helper import *
 Will return the row if found in database otherwise return None
 
 ###def fetchData(db_path, table, timeout=60)
-Fetch the first column and delete it from the table specified
+Fetch the first row and delete it from the table specified
 
-Support multithreading/concurrency. You can call this function from different instances
+Return the row if succeed
+
+Support multithreading/concurrency: You can call this function from different instances
 
 NOTE: In order to use this function you need to have a field "TEXT flag" in the table
 
@@ -25,6 +27,8 @@ NOTE: In order to use this function you need to have a field "TEXT flag" in the 
 ###def insertData(db_path, table, data, timeout=60)
 Parameter "data" should be a dictionary with keys as column name and values as values
 corresponding to each column
+
+Prevented SQL injection
 
 ###def log(content)
 
