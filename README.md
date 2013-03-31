@@ -3,6 +3,10 @@ Python Database Helper
 
 A few python database helper functions
 
+Authored by Daniel Liu
+
+##Intro:
+
 This helper currently only supports sqlite3 database, but can be easily adapted to support other databases.
 
 Tested on sqlite3 databases.
