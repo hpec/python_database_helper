@@ -5,9 +5,11 @@ A few python database helper functions
 
 This database helper currently only supports sqlite3 database.
 
-Usage: from db_helper import *
+##Usage: 
 
-Functions:
+from db_helper import *
+
+##Functions:
 
 ###def findinDatabase(db_path, table, field, value, timeout=60)
 Will return the row if found in database otherwise return None
