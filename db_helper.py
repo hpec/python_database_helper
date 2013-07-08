@@ -9,6 +9,9 @@ import time
 import traceback
 import sqlite3
 
+log = print
+errlog = print
+
 def findinDatabase(db_path, table, field, value, timeout=60):
     connection = sqlite3.connect(db_path, timeout)
     with connection:
@@ -49,14 +52,14 @@ def insertData(db_path, table, data, timeout=60):
     with connection:
         cursor = connection.cursor()
         cursor.execute("PRAGMA table_info({table})".format(table = table))
-        col = cursor.fetchall()
+        columns = cursor.fetchall()
         col_str = ''
         val_str = ''
         val = []
-        for i in col:
-            if i[1] in data:
-                col_str = col_str + i[1] + ','
-                val.append(unicode(str(data[i[1]]),'utf8'))
+        for column in columns:
+            if column[1] in data:
+                col_str = col_str + column[1] + ','
+                val.append(unicode(str(data[column[1]]), 'utf8'))
         col_str = col_str[:-1]
         val_str = '?,'*len(val)
         val_str = val_str[:-1]
@@ -75,9 +78,4 @@ def insertData(db_path, table, data, timeout=60):
                 errlog(val)
                 break
 
-def log(content):
-    print content
-
-def errlog(content):
-    print content
 
